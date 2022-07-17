@@ -7,6 +7,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,9 +48,17 @@ Route::get('/CartItemPlus/{id/{quantity}/{price}}',[CartController::class,'CartI
 Route::get('/CartItemMinus/{id}/{quantity}/{price}',[CartController::class,'CartItemMinus']);
 Route::get('/RemoveCartList/{id}',[CartController::class,'RemoveCartList']);
 Route::get('/CartList/{invoice}',[CartController::class,'CartList']);
+
+//Transaction Routes
+Route::get('/CartSell/{invoice}',[TransactionController::class,'CartSell']);
+Route::get('/TransactionList',[TransactionController::class,'TransactionList']);
+Route::get('/RecentTransactionList',[TransactionController::class,'RecentTransactionList']);
+
 //Dashboard Routes
 Route::get('/CountProduct',[DashboardController::class,'CountProduct']);
 Route::get('/CountCategory',[DashboardController::class,'CountCategory']);
+Route::get('/CountTransaction',[DashboardController::class,'CountTransaction']);
+Route::get('/CountTotalIncome',[DashboardController::class,'CountTotalIncome']);
 
 
 
