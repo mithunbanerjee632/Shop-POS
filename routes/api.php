@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,14 @@ Route::get('/SelectCategory',[CategoryController::class,'SelectCategory']);
 Route::get('/DeleteCategory/{id}',[CategoryController::class,'DeleteCategory']);
 Route::post('/UpdateCategoryWithImage',[CategoryController::class,'UpdateCategoryWithImage']);
 Route::post('/UpdateCategoryWithoutImage',[CategoryController::class,'UpdateCategoryWithoutImage']);
+
+//Product Routes
+Route::post('/AddProduct',[ProductController::class,'AddProduct']);
+Route::get('/SelectProduct',[ProductController::class,'SelectProduct']);
+Route::get('/DeleteProduct/{id}',[ProductController::class,'DeleteProduct']);
+Route::post('/UpdateProductWithImage',[ProductController::class,'UpdateProductWithImage']);
+Route::post('/UpdateProductWithoutImage',[ProductController::class,'UpdateProductWithoutImage']);
+
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
