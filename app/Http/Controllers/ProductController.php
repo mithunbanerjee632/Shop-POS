@@ -34,6 +34,12 @@ class ProductController extends Controller
        return $result;
    }
 
+    function SelectProductByCategory(Request $request){
+        $Category = $request->Category;
+        $result = ProductModel::where('product_category',$Category)->get();
+        return $result;
+    }
+
    function DeleteProduct(Request $request){
        $id = $request->id;
        $result = ProductModel::where('id',$id)->delete();

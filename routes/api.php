@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,13 @@ Route::get('/SelectProduct',[ProductController::class,'SelectProduct']);
 Route::get('/DeleteProduct/{id}',[ProductController::class,'DeleteProduct']);
 Route::post('/UpdateProductWithImage',[ProductController::class,'UpdateProductWithImage']);
 Route::post('/UpdateProductWithoutImage',[ProductController::class,'UpdateProductWithoutImage']);
+Route::get('/SelectProductByCategory/{Category}',[ProductController::class,'SelectProductByCategory']);
+
+
+//Dashboard Routes
+Route::get('/CountProduct',[DashboardController::class,'CountProduct']);
+Route::get('/CountCategory',[DashboardController::class,'CountCategory']);
+
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
