@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,12 @@ Route::post('/UpdateProductWithoutImage',[ProductController::class,'UpdateProduc
 Route::get('/SelectProductByCategory/{Category}',[ProductController::class,'SelectProductByCategory']);
 
 
+//Cart Routes
+Route::post('/AddCart',[CartController::class,'AddCart']);
+Route::get('/CartItemPlus/{id/{quantity}/{price}}',[CartController::class,'CartItemPlus']);
+Route::get('/CartItemMinus/{id}/{quantity}/{price}',[CartController::class,'CartItemMinus']);
+Route::get('/RemoveCartList/{id}',[CartController::class,'RemoveCartList']);
+Route::get('/CartList/{invoice}',[CartController::class,'CartList']);
 //Dashboard Routes
 Route::get('/CountProduct',[DashboardController::class,'CountProduct']);
 Route::get('/CountCategory',[DashboardController::class,'CountCategory']);
