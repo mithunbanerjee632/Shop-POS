@@ -37,13 +37,7 @@ class TransactionController extends Controller
        return $cartInsertDeleteResult;
     }
 
-    function TransactionList(){
-        $result = TransactionModel::orderById('id','desc')->get();
-        return $result;
-    }
 
-    function RecentTransactionList(){
-        $result = TransactionModel::orderById('id','desc')->limit(20)->get();
-        return $result;
-    }
+
+
 }

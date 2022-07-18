@@ -124,4 +124,10 @@ class DashboardController extends Controller
           return $arr;
 
       }
+
+
+    function RecentTransactionList(){
+        $result = TransactionModel::orderById('id','desc')->limit(20)->get();
+        return $result;
+    }
 }
